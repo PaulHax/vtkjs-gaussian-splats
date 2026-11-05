@@ -49,6 +49,10 @@ a {
   color: #28584f;
   text-underline-offset: 3px;
 }
+.repository-link {
+  font-size: 12px;
+  white-space: nowrap;
+}
 .wordmark {
   color: #243a3a;
   font-size: 19px;
