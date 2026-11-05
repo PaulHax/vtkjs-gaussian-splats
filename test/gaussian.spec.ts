@@ -1,3 +1,4 @@
+import { gzipSync } from "node:zlib";
 import type { Page } from "playwright";
 import sharp from "sharp";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -6,9 +7,10 @@ import { browserFor, closeBrowser, collectPageFailures, DIST } from "./browserSe
 import { BASE_PATH, startStaticServer, type StaticServer } from "./server";
 
 let server: StaticServer;
+const compressedResponses = new Map<string, Buffer>();
 
 beforeAll(async () => {
-  server = await startStaticServer(DIST);
+  server = await startStaticServer(DIST, compressedResponses);
 });
 
 afterAll(async () => {
@@ -121,12 +123,8 @@ const expectStockLink = async (page: Page, model: string): Promise<void> => {
 };
 
 describe("Gaussian scene example", () => {
-  it("switches aerial models and opens the selected file in the stock viewer", async () => {
+  it("switches aerial models and opens the selected gzip-compressed file in the stock viewer", async () => {
     const browser = await browserFor();
-    const context = await browser.newContext({ viewport: { width: 960, height: 640 } });
-    const failures: string[][] = [];
-    context.on("page", (page) => failures.push(collectPageFailures(page)));
-    const modelRequests: string[] = [];
     const urban = encodeSplats([NEAR, FAR]);
     const hall = encodeSplats([
       {
@@ -140,18 +138,17 @@ describe("Gaussian scene example", () => {
         color: [255, 0, 0, 255],
       },
     ]);
+    compressedResponses.set(`${BASE_PATH}data/urban.splat`, gzipSync(urban));
+    compressedResponses.set(`${BASE_PATH}data/hall.splat`, gzipSync(hall));
+    const context = await browser.newContext({ viewport: { width: 960, height: 640 } });
+    const failures: string[][] = [];
+    context.on("page", (page) => failures.push(collectPageFailures(page)));
+    const modelRequests: string[] = [];
     await context.route(
       (url) => url.pathname.endsWith(".splat"),
       (route) => {
-        const url = route.request().url();
-        modelRequests.push(url);
-        const body = new URL(url).pathname.endsWith("/hall.splat") ? hall : urban;
-        return route.fulfill({
-          status: 200,
-          contentType: "application/octet-stream",
-          headers: { "content-length": String(body.byteLength) },
-          body,
-        });
+        modelRequests.push(route.request().url());
+        return route.continue();
       },
     );
     try {
@@ -230,6 +227,7 @@ describe("Gaussian scene example", () => {
       expect(failures.flat()).toEqual([]);
     } finally {
       await context.close();
+      compressedResponses.clear();
     }
   });
 

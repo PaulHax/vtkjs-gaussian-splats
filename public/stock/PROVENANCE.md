@@ -1,15 +1,26 @@
 # Stock Gaussian splat viewer
 
-`index.html`, `main.js` and `LICENSE` are unchanged copies from
+The viewer is based on
 [antimatter15/splat](https://github.com/antimatter15/splat/tree/ba182b51b7c2ad5738cdd6741cd63336d27470fb),
 revision `ba182b51b7c2ad5738cdd6741cd63336d27470fb`. The upstream viewer is
 copyright 2023 Kevin Kwok and distributed under the included MIT license.
+
+Upstream file checksums:
 
 | File         |  Bytes | SHA-256                                                            |
 | ------------ | -----: | ------------------------------------------------------------------ |
 | `index.html` |  5,723 | `42f8ee41d24ca4b1e8a5b0d78656127952b7909235195fa3c2bd4fb30228ff92` |
 | `main.js`    | 51,459 | `b63e01a96e28d88039c2df5bc7ea33cacee13dea298cc2a357d284f4e7ca81a2` |
 | `LICENSE`    |  1,067 | `7d62ca775042bb7182918e42e6bd7b8cac3462ceaf7717d7836ef0c0fce075ef` |
+
+`index.html` and `LICENSE` are unchanged. The `main.js` loader reads the decoded
+response into a Blob and allocates from `Blob.size`. Compressed HTTP responses
+can have a smaller `Content-Length` than the decoded model. This change waits
+for the complete download before rendering; shaders, sorting, compositing,
+camera controls and the interface are unchanged.
+
+The served `main.js` is 51,557 bytes, SHA-256
+`bf5ac796bd1a1952900ae4c578d16910055438b607e6355390b2e2eb8687a4bf`.
 
 These files are served from the site's `stock/` path without rewriting or
 bundling them. Styles, shaders and
@@ -24,9 +35,9 @@ With a same-origin model URL, loading uses a GET from this site and does not
 upload the model elsewhere.
 Omitting `url` loads upstream's default train model.
 
-The model endpoint must return HTTP 200 and an accurate `Content-Length` for
-the uncompressed `.splat` bytes. The viewer allocates its input buffer from
-that header. The URL fragment accepts its native JSON view matrix and disables
+The model endpoint must return HTTP 200. Compressed responses and responses
+without `Content-Length` are supported through the decoded response size.
+The URL fragment accepts its native JSON view matrix and disables
 the default camera animation. Camera transfer retains the stock viewer's own
 projection and controls; it does not match another renderer's field of view.
 

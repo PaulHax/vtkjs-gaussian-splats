@@ -4,8 +4,9 @@
 
 An experimental VTK.js Gaussian splat viewer with two drone reconstructions,
 upright orbit and walking controls, and a point-cloud view. **View this model**
-opens the same model in a separate, unchanged
-[antimatter15 viewer](public/stock/PROVENANCE.md). **Spark demos** opens the
+opens the same model in a separate
+[antimatter15 viewer](public/stock/PROVENANCE.md). Its loader handles compressed
+HTTP responses; its rendering and controls are unchanged. **Spark demos** opens the
 [official Spark gallery](https://sparkjs.dev/examples/#hello-world).
 
 The renderer uses anisotropic Gaussians, worker-based depth sorting, and

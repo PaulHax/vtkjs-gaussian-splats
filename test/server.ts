@@ -18,7 +18,10 @@ export type StaticServer = {
 };
 
 /** Serve the production artifact only beneath its deployment base path. */
-export const startStaticServer = async (directory: string): Promise<StaticServer> => {
+export const startStaticServer = async (
+  directory: string,
+  compressedResponses: ReadonlyMap<string, Buffer> = new Map(),
+): Promise<StaticServer> => {
   const root = resolve(directory);
   const server = createServer((request, response) => {
     void (async () => {
@@ -27,6 +30,17 @@ export const startStaticServer = async (directory: string): Promise<StaticServer
         const pathname = decodeURIComponent(url.pathname);
         if (!pathname.startsWith(BASE_PATH)) {
           response.writeHead(404).end();
+          return;
+        }
+        const compressed = compressedResponses.get(pathname);
+        if (compressed !== undefined) {
+          response.writeHead(200, {
+            "content-type": "application/octet-stream",
+            "content-encoding": "gzip",
+            "content-length": String(compressed.byteLength),
+            "cache-control": "no-store",
+          });
+          response.end(request.method === "HEAD" ? undefined : compressed);
           return;
         }
         let file = resolve(root, pathname.slice(BASE_PATH.length));

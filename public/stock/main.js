@@ -758,8 +758,10 @@ async function main() {
         throw new Error(req.status + " Unable to load " + req.url);
 
     const rowLength = 3 * 4 + 3 * 4 + 4 + 4;
-    const reader = req.body.getReader();
-    let splatData = new Uint8Array(req.headers.get("content-length"));
+    // Content-Length describes encoded bytes; Blob.size describes decoded bytes.
+    const file = await req.blob();
+    const reader = file.stream().getReader();
+    let splatData = new Uint8Array(file.size);
 
     const downsample =
         splatData.length / rowLength > 500000 ? 1 : 1 / devicePixelRatio;

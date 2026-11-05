@@ -70,10 +70,11 @@ differently colored versions.
 The demo's MIT license retains the copyright of the pointcloud-lod contributors
 and Paul Elliott. The model licenses above do not change the software license.
 
-The stock comparison viewer is an unchanged copy of
+The stock comparison viewer is based on
 [antimatter15/splat](https://github.com/antimatter15/splat/tree/ba182b51b7c2ad5738cdd6741cd63336d27470fb),
 revision `ba182b51b7c2ad5738cdd6741cd63336d27470fb`, copyright 2023 Kevin Kwok.
-It is distributed under its included
+Its loader uses the decoded response size to support compressed model downloads.
+Its renderer and controls are unchanged. It is distributed under its included
 [MIT license](https://github.com/antimatter15/splat/blob/ba182b51b7c2ad5738cdd6741cd63336d27470fb/LICENSE).
 
 VTK.js is copyright Kitware Inc. and distributed under the
