@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/Kitware/vtk-js.git",
+  "revision": "5d46987847429e1556b3c182d21bcb92f226d9e2",
+  "upstreamVersion": "38.0.5",
+  "patch": "vendor/vtk/point-gaussian.patch",
+  "patchSha256": "ec614bb4805ee6278073c367cd0f2b41713282ed5c2ee4074453a5aa91330c6b"
+}

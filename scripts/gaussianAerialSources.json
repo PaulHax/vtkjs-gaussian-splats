@@ -1,0 +1,122 @@
+[
+  {
+    "id": "urban",
+    "title": "PIX4D Urban Drone Sample - Reconstructed with Seeget3D",
+    "author": "Seeget3D",
+    "license": "CC-BY-4.0",
+    "sourceUrl": "https://superspl.at/scene/e92a7e9b",
+    "baseUrl": "https://d28zzqy0iyovbz.cloudfront.net/e92a7e9b/v1/",
+    "files": [
+      {
+        "path": "2_0/meta.json",
+        "size": 15729,
+        "sha256": "22a909affb5a875ae5ae959413640afa680d5becaea05f6151ddbed62eb7fd2a"
+      },
+      {
+        "path": "2_0/means_l.webp",
+        "size": 1507828,
+        "sha256": "ea14095a04a1762324707a8822794ffadc329eb385b4a05a8840ea9b3c9478de"
+      },
+      {
+        "path": "2_0/means_u.webp",
+        "size": 395706,
+        "sha256": "eb0d955a47ac850443a19c42d51adfff7de63507f25325555493b2bd8038a527"
+      },
+      {
+        "path": "2_0/scales.webp",
+        "size": 1339894,
+        "sha256": "45e7bb51d52c143e728c1083fff4e97271ddf0e16c40876dc90349c7301bb4b1"
+      },
+      {
+        "path": "2_0/quats.webp",
+        "size": 1669812,
+        "sha256": "a2455886ff841c3e4d35f4e116196dc0a3cd6fe085a6d2718f76df9d9e8cb02d"
+      },
+      {
+        "path": "2_0/sh0.webp",
+        "size": 1653344,
+        "sha256": "a738ebcff0a008493beceea3ec2538eb4a2223917ae97be8fd4f383f266f8a36"
+      },
+      {
+        "path": "2_0/shN_centroids.webp",
+        "size": 2424420,
+        "sha256": "36161abb41397d2379dfc4e0fa81ba15780ef0dcb47c2f43c433dae87ace1fa4"
+      },
+      {
+        "path": "2_0/shN_labels.webp",
+        "size": 1026340,
+        "sha256": "e767f627f5ac4bb20f2c7afcf93d17bd95be2eb194af394a80b4019b7168bd8f"
+      },
+      {
+        "path": "2_1/meta.json",
+        "size": 15740,
+        "sha256": "8b459d766c1881780e7b450ad14001451b7602c4ba2636ea0770600a4a746705"
+      },
+      {
+        "path": "2_1/means_l.webp",
+        "size": 414234,
+        "sha256": "f868e3142c07fe3bc8725f897879e06553c69b19dfd5e3428929276ed2ae05e7"
+      },
+      {
+        "path": "2_1/means_u.webp",
+        "size": 127636,
+        "sha256": "37b7906d897706c97062ecae18199d0acfd34952f12b121ca490f5ebe2d11a11"
+      },
+      {
+        "path": "2_1/scales.webp",
+        "size": 352100,
+        "sha256": "7ff32bb198f217a2b883d06affb8d85de0152be6dfb25b3f13890f97abb519b7"
+      },
+      {
+        "path": "2_1/quats.webp",
+        "size": 439990,
+        "sha256": "eaca35b10d45b4c7b22ca9cf60df34aac96c2e3bf8d0a19d83383e01f115a279"
+      },
+      {
+        "path": "2_1/sh0.webp",
+        "size": 426560,
+        "sha256": "dd6c1705571c73f69b03d012a8ccbdf2a62092ec6506d4771bc114e5a02c632d"
+      },
+      {
+        "path": "2_1/shN_centroids.webp",
+        "size": 2443970,
+        "sha256": "b34927ad3dccfb7e743f9929f0b8b824fe1bcf9d59d5aab063238b3c62078bd3"
+      },
+      {
+        "path": "2_1/shN_labels.webp",
+        "size": 267024,
+        "sha256": "c32e27ad2f3ee0e6e406db3a720378afbbac69de4db003a078d701579f2ff3be"
+      }
+    ],
+    "inputs": ["2_0/meta.json", "2_1/meta.json"],
+    "sourceVersion": 1,
+    "selectedLod": 2,
+    "sourceHarmonicBands": 3,
+    "outputHarmonicBands": 0,
+    "count": 662479,
+    "bytes": 21199328,
+    "sha256": "5a4c217223f5d7d897f7c65ce4f78f1f74b80bd92590c889c4c80cdb0a444b77"
+  },
+  {
+    "id": "hall",
+    "title": "Knock Community Hall",
+    "author": "scbenoit",
+    "license": "CC-BY-4.0",
+    "sourceUrl": "https://superspl.at/scene/0ff2e6dc",
+    "sourceRevision": "572145ab6df05e108fb75233c303e72ca08ae195",
+    "baseUrl": "https://raw.githubusercontent.com/playcanvas/engine/572145ab6df05e108fb75233c303e72ca08ae195/examples/assets/splats/",
+    "files": [
+      {
+        "path": "knock-community-hall.sog",
+        "size": 27830709,
+        "sha256": "2c9ef67e619878cdb85d8f972cc6b1b8a8c76cbd7b4ed1137ac97bbd78785202"
+      }
+    ],
+    "inputs": ["knock-community-hall.sog"],
+    "sourceHarmonicBands": 1,
+    "outputHarmonicBands": 0,
+    "count": 1935100,
+    "bytes": 61923200,
+    "sha256": "3edd070eb7ca56351cbdfe498608b4adde3e8021561a8fa213632ef59661730f"
+  }
+]
