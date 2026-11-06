@@ -159,8 +159,8 @@ describe("Gaussian scene example", () => {
       const modelPicker = page.getByRole("combobox", { name: "Model", exact: true });
       expect(await modelPicker.inputValue()).toBe("urban");
       expect(
-        await page.getByRole("link", { name: "tiled-vtkjs", exact: true }).getAttribute("href"),
-      ).toBe(BASE_PATH);
+        await page.locator("header").getByRole("link", { name: "GitHub" }).getAttribute("href"),
+      ).toBe("https://github.com/PaulHax/vtkjs-gaussian-splats");
       expect(await page.getByRole("button", { name: "Orbit scene" }).count()).toBe(0);
       const navigation = page.getByRole("combobox", { name: "Navigation" });
       expect(await navigation.inputValue()).toBe("orbit");

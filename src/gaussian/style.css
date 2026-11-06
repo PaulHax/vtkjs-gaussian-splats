@@ -40,10 +40,7 @@ canvas#scene {
   backdrop-filter: blur(12px);
 }
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  text-align: right;
 }
 a {
   color: #28584f;
@@ -52,16 +49,6 @@ a {
 .repository-link {
   font-size: 12px;
   white-space: nowrap;
-}
-.wordmark {
-  color: #243a3a;
-  font-size: 19px;
-  font-weight: 650;
-  letter-spacing: -1px;
-  text-decoration: none;
-}
-.wordmark span {
-  font-weight: 400;
 }
 .intro {
   margin-top: 16px;

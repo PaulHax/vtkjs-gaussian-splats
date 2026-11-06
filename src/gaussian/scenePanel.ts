@@ -39,7 +39,6 @@ export const initializeScenePanel = () => {
   panel.setAttribute("aria-label", "Scene controls");
   panel.innerHTML = `
     <header>
-      <a class="wordmark" href="${import.meta.env.BASE_URL}">tiled-<span>vtkjs</span></a>
       <a class="repository-link" href="https://github.com/PaulHax/vtkjs-gaussian-splats" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </header>
     <label class="field model-field" for="model">Model<select id="model"></select></label>
