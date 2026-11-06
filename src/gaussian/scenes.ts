@@ -9,6 +9,7 @@ export type GaussianScene = {
   readonly pose: CameraPose;
   readonly worldUp: CameraVector;
   readonly viewAngle: number;
+  readonly viewAngleAxis: "longest" | "vertical";
   readonly clippingRange: readonly [number, number];
   readonly sceneRadius: number;
   readonly navigation: NavigationMode;
@@ -29,6 +30,7 @@ export const scenes: readonly GaussianScene[] = [
     },
     worldUp: [0, -1, 0],
     viewAngle: 75,
+    viewAngleAxis: "longest",
     clippingRange: [0.5, 3000],
     sceneRadius: 400,
     navigation: "orbit",
@@ -47,6 +49,7 @@ export const scenes: readonly GaussianScene[] = [
     },
     worldUp: [0, -1, 0],
     viewAngle: 75,
+    viewAngleAxis: "vertical",
     clippingRange: [0.05, 1000],
     sceneRadius: 15,
     navigation: "orbit",

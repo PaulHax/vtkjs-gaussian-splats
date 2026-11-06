@@ -215,6 +215,7 @@ const resize = (): void => {
   const width = Math.max(1, Math.floor(bounds.width * ratio));
   const height = Math.max(1, Math.floor(bounds.height * ratio));
   openGL.setSize(width, height);
+  camera.setUseHorizontalViewAngle(scene.viewAngleAxis === "longest" && width > height);
   mapper.setLowpassMatrix(1.2 / (width * width), 0, 1.2 / (height * height));
   requestRender();
 };

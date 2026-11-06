@@ -44,7 +44,7 @@ artifact, then deploys it to GitHub Pages on pushes to `main`.
 
 ## Models and licenses
 
-- **Urban drone survey:** PIX4D sample reconstructed by Seeget3D, 662,479 Gaussians.
+- **Urban drone survey** uses all 2,651,420 Gaussians in the finest source level of Seeget3D's PIX4D reconstruction.
 - **Knock Community Hall:** drone reconstruction by scbenoit, 1,935,100 Gaussians.
 
 Both models are CC BY 4.0. [Attribution and conversion details](public/ATTRIBUTION.md)

@@ -12,14 +12,15 @@ by **Seeget3D**, is published under
 The creator describes reconstructing the scene from 100 vertically captured
 images from the PIX4D drone sample dataset.
 
-This demo uses version 1, LOD 2: **662,479 Gaussians** from the `2_0` and `2_1`
-chunks of the [published LOD manifest](https://d28zzqy0iyovbz.cloudfront.net/e92a7e9b/v1/lod-meta.json).
-The highest-detail source level contains 2,651,420 Gaussians. The source's
-degree-3 spherical harmonics have been reduced to DC colors, and the chunks
-have been combined and converted to the `.splat` representation described below.
+The demo combines all six LOD 0 chunks (`0_0` through `0_5`) from version 1
+and retains all **2,651,420 Gaussians** in this level. Conversion reduces
+the source's degree-3 spherical harmonics to DC colors. [Published LOD manifest](https://d28zzqy0iyovbz.cloudfront.net/e92a7e9b/v1/lod-meta.json).
 
-`urban.splat`: 21,199,328 bytes, SHA-256
-`5a4c217223f5d7d897f7c65ce4f78f1f74b80bd92590c889c4c80cdb0a444b77`.
+The initial camera uses the creator's pose and measures its 75° view angle
+along the longer viewport dimension. [Source viewer camera settings](https://superspl.at/s?id=e92a7e9b).
+
+`urban.splat` is 84,845,440 bytes with SHA-256
+`1add4a271bfefa369f3504cd51156acbb05447126266abd7e18014dbc4a92d11`.
 [Download provenance and source hashes](https://paulhax.github.io/vtkjs-gaussian-splats/data/urban.json).
 
 ## Knock Community Hall
